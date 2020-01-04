@@ -1,11 +1,12 @@
 ---
 title: "PrysmJs Syntax Highlighter"
 date: "12-29-2019"
+order: 1
 ---
 
 Install the following
 ```js
-npm install --save gatsby-transformer-remark gatsby-remark-prismjs prismjs gatsby-remark-autolink-headers gatsby-remark-source-name
+npm install --save gatsby-transformer-remark gatsby-remark-prismjs prismjs
 ```
 <br>
 <br>

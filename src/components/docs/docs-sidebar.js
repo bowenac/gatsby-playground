@@ -8,7 +8,7 @@ const DocsSidebar = ({ docs, heading, parentlink }) => (
     <StaticQuery
         query={graphql`
             query{
-                allFile(sort: {fields: birthTime}) {
+                allFile(sort: {fields: childMarkdownRemark___frontmatter___order}, filter: {sourceInstanceName: {eq: "gatsbydocs"}}) {
                     edges {
                         node {
                             sourceInstanceName
