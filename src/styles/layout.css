@@ -620,3 +620,95 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+
+.t-left{
+    text-align: left;
+}
+.t-center{
+    text-align: center;
+}
+.t-right{
+    text-align: right;
+}
+
+.btn, button, input[type="button"], input[type="reset"], input[type="submit"] {
+    font-family: 'Roboto';
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    display: inline-block;
+    background: rebeccapurple;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 2px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.btn:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+    background: #fff;
+    color: rebeccapurple;
+}
+
+section {
+    padding: 30px 0px;
+}
+.container {
+    max-width: 1160px;
+    padding: 0 1.0875rem;
+    margin: auto;
+}
+
+section.fluid .container {
+    max-width: 100%;
+    padding: 0;
+    margin: auto;
+}
+section.full .container {
+    max-width: 100%;
+}
+section.fluid .row .col-md-4,
+section.fluid .row .col-md-6{
+    margin-bottom: 1.45rem;
+}
+@media screen and (min-width: 768px){
+    section.fluid .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    section.fluid .row .col-md-6 {
+        margin-bottom: 60px;
+    }
+    section.fluid .row .col-md-6:nth-child(2n+1) {
+        padding-left: 0px;
+        padding-right: 30px;
+    }
+    section.fluid .row .col-md-6:nth-child(2n+2) {
+        padding-right: 0px;
+        padding-left: 30px;
+    }
+    section.fluid .row .col-md-4 {
+        margin-bottom: 45px;
+    }
+    section.fluid .row .col-md-4:nth-child(3n+1) {
+        padding-left: 0px;
+        padding-right: 30px;
+    }
+    section.fluid .row .col-md-4:nth-child(3n+3) {
+        padding-right: 0px;
+        padding-left: 30px;
+    }
+}
+
+
+footer {
+    padding: 30px 0px;
+}
+footer .container {
+    text-align: center;
+}

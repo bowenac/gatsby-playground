@@ -12,6 +12,9 @@ const ToDoPage = ({ location }) => (
         <section>
             <div className="container">
                 <h1>ToDos!</h1>
+
+                <p>Just a list of things to work on.</p>
+
                 {/* TODO: List of todos */}
                 <ul>
                     <li><strike>Create a new fresh gatsby project just use the default starter theme and build off of that
@@ -19,7 +22,7 @@ const ToDoPage = ({ location }) => (
                             <li>Commit initial starter theme to github</li>
                         </ul>
                     </strike></li>
-                    <li>Create image component to just call something like Image imgName="gatsby-astronaut.png" and commit it</li>
+                    <li><strike>Create image component to just call something like Image imgName="gatsby-astronaut.png" and commit it</strike></li>
                     <li>Create a component for a hero</li>
                     <li>Create a component for slider using slickslider</li>
                     <li>Create different menu types as components for quick starter menus:
