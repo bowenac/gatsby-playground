@@ -1,0 +1,13 @@
+section.fluid.hero {
+    padding: 7% 0px;
+    font-family: "BentonSans-Regular";
+    font-size: 23px;
+    line-height: 38px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+.hero .inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+}
