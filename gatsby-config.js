@@ -40,5 +40,27 @@ module.exports = {
                 specialChars: '/:',
             },
         },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [
+                    `gatsby-remark-autolink-headers`,
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            showLineNumbers: true,
+                        },
+                    },
+                ],
+            },
+        },
+        `gatsby-remark-source-name`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `gatsbydocs`,
+                path: `${__dirname}/src/pages/docs/gatsby/`,
+            },
+        },
     ],
 }

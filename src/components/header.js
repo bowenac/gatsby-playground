@@ -47,6 +47,12 @@ class Header extends React.Component {
                     <div className={`nav-menu ${menuActive}`} >
                         <div className="menu-container">
                             <div className="column">
+                                <span>Docs</span>
+                                <ul className="nav-links">
+                                    <li><Link to="/docs/gatsby/">Gatsby</Link></li>
+                                </ul>
+                            </div>
+                            <div className="column">
                                 <span>Work</span>
                                 <ul className="nav-links">
                                     <li><Link to="/todo/">ToDo's</Link></li>
