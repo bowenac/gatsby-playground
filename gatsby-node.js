@@ -49,4 +49,29 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
         })
     })
+
+    /* Create WordPress Single Post URLs */
+    const wordpressTemplate = path.resolve('./src/templates/docs.js')
+    const wordpress = await graphql(`
+        query {
+            allMarkdownRemark(filter: {fields: {sourceName: {eq : "wordpressdocs"}}}) {
+                edges{
+                    node{
+                        fields{
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    wordpress.data.allMarkdownRemark.edges.forEach((edge) => {
+        createPage({
+            component: wordpressTemplate,
+            path: `/docs/wordpress/${edge.node.fields.slug}`,
+            context: {
+                slug: edge.node.fields.slug
+            }
+        })
+    })
 }

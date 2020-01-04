@@ -40,6 +40,9 @@ const Docs = (props) => {
     if (doctype === 'gatsbydocs') {
         heading = "Gatsby Docs"
         parentlink = "/docs/gatsby/"
+    } else {
+        heading = "WordPress Docs"
+        parentlink = "/docs/wordpress/"
     }
 
     return (

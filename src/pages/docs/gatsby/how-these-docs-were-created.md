@@ -151,8 +151,8 @@ This main root page is not using a markdown file, I just added html and the code
 ```js
 import React from "react"
 import SEO from "../../components/seo"
-import DocsLayout from "../../components/docs-layout"
-import DocsSidebar from "../../components/sidebars/docs-sidebar"
+import DocsLayout from "../../components/docs/docs-layout"
+import DocsSidebar from "../../components/docs/docs-sidebar"
 import Footer from "../../components/footer"
 import { useEffect } from "react"
 import Prism from "prismjs"
@@ -214,8 +214,8 @@ export default GatsbyDocsPage
 ```js
 import React from "react"
 import SEO from "../../components/seo"
-import DocsLayout from "../../components/docs-layout"
-import DocsSidebar from "../../components/sidebars/docs-sidebar"
+import DocsLayout from "../../components/docs/docs-layout"
+import DocsSidebar from "../../components/docs/docs-sidebar"
 import Footer from "../../components/footer"
 import { useEffect } from "react"
 import Prism from "prismjs"
@@ -252,7 +252,8 @@ const WordPressDocsPage = ({ location }) => {
                         <div className="docs">
                             <div class="container">
                                 <h1>WordPress Docs!</h1>
-                                <h3>Not much to put here... just the root for an example of different documentation routes/types</h3>
+                                <h3>Not much to put here... Just an example of a separate docs section.</h3>
+                                <p>Will probably change these docs to integrating WordPress in gatsby so it has it's own section of docs. Just random code examples for testing currently...</p>
                                 <Footer />
                             </div>
                             <div className={'sidebar-toggle' + (open ? ' active' : '')} onClick={clickHandler} onKeyPress={clickHandler} tabIndex={0} role="button">
@@ -279,21 +280,21 @@ Then we need to create the template we specified would be used for the markdown 
 <br>
 **Line 5-7** is importing the custom components I created
 <br>
-**Line 9-22** graphql query to get all the content from the markdown file, as well as **sourceName** on **line 13**. This is from the plugin gatsby-remark-source-name and allows me to check what kind of docs we are currently viewing...
+**Line 11-23** graphql query to get all the content from the markdown file, as well as **sourceName** on **line 13**. This is from the plugin gatsby-remark-source-name and allows me to check what kind of docs we are currently viewing...
 <br>
-**Line 29-33** is used for a click handler to toggle the sidebar nav.
+**Line 31-35** is used for a click handler to toggle the sidebar nav.
 <br>
-**Line 35-44** is where I'm checking the **sourceName**. I've set a variable called doctype to be the value of the sourceName from the graphql query. I then check if that variable equals 'gatsbydocs', if so, I know I'm viewing a doc for Gatsby docs. I then set the heading, and the parentlink. Otherwise I set it for WordPress docs etc. This allows me to have have a single docs.js template for all single docs pages.
+**Line 37-46** is where I'm checking the **sourceName**. I've set a variable called doctype to be the value of the sourceName from the graphql query. I then check if that variable equals 'gatsbydocs', if so, I know I'm viewing a doc for Gatsby docs. I then set the heading, and the parentlink. Otherwise I set it for WordPress docs etc. This allows me to have have a single docs.js template for all single docs pages.
 <br>
-**Line 47** I use the DocsLayout component and close it on line 73
+**Line 49** I use the DocsLayout component and close it on line 73
 <br>
-**Line 51** is assigning active class to the sidebar when sidebar hamburger menu is clicked etc. I then can target that active class to show the sidebar on mobile.
+**Line 59** is assigning active class to the sidebar when sidebar hamburger menu is clicked etc. I then can target that active class to show the sidebar on mobile.
 <br>
-**Line 55** I use the DocsSidebar component notice the values (docs="" heading="" parentlink="") are now using the variables we set based on the sourceName... Like the main docs page, docs is used to dynamically get the sidebar links for the correct documentation, heading is used for the sidebar heading, and parentlink is used to link the heading.
+**Line 63** I use the DocsSidebar component notice the values (docs="" heading="" parentlink="") are now using the variables we set based on the sourceName... Like the main docs page, docs is used to dynamically get the sidebar links for the correct documentation, heading is used for the sidebar heading, and parentlink is used to link the heading.
 <br>
-**Line 63** I use the Footer component
+**Line 71** I use the Footer component
 <br>
-**Line 65** is assigning active class to the hamburger menu is clicked. I then can change the style of the hamburger menu when the sidebar is open on mobile.
+**Line 73** is assigning active class to the hamburger menu is clicked. I then can change the style of the hamburger menu when the sidebar is open on mobile.
 <br>
 <br>
 
@@ -304,15 +305,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { useEffect } from "react"
 import Prism from "prismjs"
-import DocsLayout from "../components/docs-layout"
-import DocsSidebar from "../components/sidebars/docs-sidebar"
+import DocsLayout from "../components/docs/docs-layout"
+import DocsSidebar from "../components/docs/docs-sidebar"
 import Footer from "../components/footer"
+import SEO from "../components/seo"
 
 export const query = graphql`
     query ($slug: String!) {
         markdownRemark(fields: {slug: {eq: $slug}}) {
             fields {
                 sourceName
+                slug
             }
             frontmatter {
                 title
@@ -347,6 +350,12 @@ const Docs = (props) => {
 
     return (
         <DocsLayout>
+            <SEO
+                title={props.data.markdownRemark.frontmatter.title}
+                description={props.data.markdownRemark.frontmatter.description}
+                keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+                pathname={`${parentlink}${props.data.markdownRemark.fields.slug}`}
+            />
             <section className="full has-sidebar">
                 <div className="container">
                     <div className="row">
@@ -385,7 +394,7 @@ export default Docs
 
 ##Components##
 
-`src/components/docs-layout.js`
+`src/components/docs/docs-layout.js`
 
 ```js
 /**
@@ -398,9 +407,9 @@ export default Docs
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Header from "./header"
-import "../styles/layout.css"
-import "../styles/menu.css"
+import Header from "../header"
+import "../../styles/layout.css"
+import "../../styles/menu.css"
 import Helmet from "react-helmet"
 
 const DocsLayout = ({ children }) => {
@@ -435,7 +444,7 @@ export default DocsLayout
 <br>
 <br>
 
-`src/components/sidebars/docs-sidebar.js`
+`src/components/docs/docs-sidebar.js`
 
 ```js
 import React from "react"
@@ -448,7 +457,7 @@ const DocsSidebar = ({ docs, heading, parentlink }) => (
     <StaticQuery
         query={graphql`
             query{
-                allFile {
+                allFile(sort: {fields: childMarkdownRemark___frontmatter___order}) {
                     edges {
                         node {
                             sourceInstanceName

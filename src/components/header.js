@@ -50,6 +50,7 @@ class Header extends React.Component {
                                 <span>Docs</span>
                                 <ul className="nav-links">
                                     <li><Link to="/docs/gatsby/">Gatsby</Link></li>
+                                    <li><Link to="/docs/wordpress/">WordPress</Link></li>
                                 </ul>
                             </div>
                             <div className="column">

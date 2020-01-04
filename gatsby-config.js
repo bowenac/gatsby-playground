@@ -62,5 +62,12 @@ module.exports = {
                 path: `${__dirname}/src/pages/docs/gatsby/`,
             },
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `wordpressdocs`,
+                path: `${__dirname}/src/pages/docs/wordpress/`,
+            },
+        },
     ],
 }
