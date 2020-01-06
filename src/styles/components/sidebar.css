@@ -21,7 +21,11 @@ section.full.has-sidebar {
 .sidebar ul li a, .sidebar ul li h3 {
     color: rgba(21,9,64,.7);
     text-decoration: none;
+    transition: all .3s;
     -webkit-transition: all .3s;
+}
+.sidebar ul li a {
+    position: relative;
 }
 .sidebar ul li a.active {
     font-weight: 700;
@@ -30,22 +34,32 @@ section.full.has-sidebar {
 .sidebar ul li a:after {
     content: "";
     position: absolute;
-    top: 4px;
-    top: .25rem;
+    top: 0;
     height: 0;
     left: -16px;
-    left: -1rem;
     width: 4px;
-    width: .25rem;
     background-color: rgba(21,9,64,.5);
     border-radius: 2px;
-    border-radius: .125rem;
-    transition: all .3s;
-    -webkit-transition: all .3s;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
 }
 .sidebar ul li a.active:after {
-    height: calc(100% - 8px);
-    height: calc(100% - .5rem);
+    height: 100%;
+    background-color: rebeccapurple;
+    transition: all 0.5s ease 0s;
+}
+
+.sidebar ul ul.sub-menu {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.sidebar ul ul.sub-menu li {
+    margin-bottom: 5px;
+}
+.sidebar ul ul.sub-menu li a {
+    font-size: 16px;
+    word-break: break-word;
+    display: inline-block;
 }
 
 section.full.has-sidebar .docs {
