@@ -42,13 +42,12 @@ const ToDoPage = ({ location }) => (
                             </ul>
                         </ul>
                     </li>
-                    <li>Strapi Integration:
+                    <li><strike>Strapi Integration:
                         <ul>
-                            <li>Pages</li>
                             <li>Blog Posts</li>
                             <li>Images</li>
                         </ul>
-                    </li>
+                    </strike></li>
                     <li>WordPress Integration:
                         <ul>
                             <li>Pages</li>
