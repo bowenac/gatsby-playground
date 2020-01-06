@@ -49,9 +49,13 @@ section.full.has-sidebar {
     transition: all 0.5s ease 0s;
 }
 
-.sidebar ul ul.sub-menu {
+.sidebar ul li ul.sub-menu {
     margin-top: 5px;
     margin-left: 20px;
+    display: none;
+}
+.sidebar ul li.active ul.sub-menu {
+    display: block;
 }
 .sidebar ul ul.sub-menu li {
     margin-bottom: 5px;

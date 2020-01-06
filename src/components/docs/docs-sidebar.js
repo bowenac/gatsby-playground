@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import "../../styles/components/sidebar.css"
 import { kebabCase } from 'lodash';
 
-const DocsSidebar = ({ docs, heading, parentlink }) => (
+const DocsSidebar = ({ location, docs, heading, parentlink }) => (
 
     <StaticQuery
         query={graphql`
@@ -40,8 +40,13 @@ const DocsSidebar = ({ docs, heading, parentlink }) => (
                         if (docs !== edge.node.sourceInstanceName) {
                             return null
                         }
+
+                        let parentClass = ''
+                        if (window.location.pathname === `${parentlink}${edge.node.childMarkdownRemark.fields.slug}/`) {
+                            parentClass = 'active'
+                        }
                         return (
-                            <li>
+                            <li className={parentClass}>
                                 <Link activeClassName="active" to={`${parentlink}${edge.node.childMarkdownRemark.fields.slug}/`}>
                                     {edge.node.childMarkdownRemark.frontmatter.title}
                                 </Link>
@@ -49,13 +54,19 @@ const DocsSidebar = ({ docs, heading, parentlink }) => (
                                 {edge.node.childMarkdownRemark.headings.length > 0 &&
                                     <ul className="sub-menu" style={{ padding: `0` }}>
                                         {edge.node.childMarkdownRemark.headings.map((heading) => {
+
+                                            let childClass = ''
+                                            if (window.location.hash === `#${kebabCase(heading.value)}`) {
+                                                childClass = 'active'
+                                            }
                                             return (
                                                 <li>
-                                                    <Link to={`${parentlink}${edge.node.childMarkdownRemark.fields.slug}/#${kebabCase(heading.value)}`}>
+                                                    <Link className={childClass} to={`${parentlink}${edge.node.childMarkdownRemark.fields.slug}/#${kebabCase(heading.value)}`}>
                                                         {heading.value}
                                                     </Link>
                                                 </li>
                                             )
+
                                         })}
                                     </ul>
                                 }
