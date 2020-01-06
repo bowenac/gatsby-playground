@@ -42,9 +42,12 @@ const DocsSidebar = ({ location, docs, heading, parentlink }) => (
                         }
 
                         let parentClass = ''
-                        if (window.location.pathname === `${parentlink}${edge.node.childMarkdownRemark.fields.slug}/`) {
-                            parentClass = 'active'
+                        if (typeof window !== `undefined`) {
+                            if (window.location.pathname === `${parentlink}${edge.node.childMarkdownRemark.fields.slug}/`) {
+                                parentClass = 'active'
+                            }
                         }
+
                         return (
                             <li className={parentClass}>
                                 <Link activeClassName="active" to={`${parentlink}${edge.node.childMarkdownRemark.fields.slug}/`}>
@@ -56,8 +59,10 @@ const DocsSidebar = ({ location, docs, heading, parentlink }) => (
                                         {edge.node.childMarkdownRemark.headings.map((heading) => {
 
                                             let childClass = ''
-                                            if (window.location.hash === `#${kebabCase(heading.value)}`) {
-                                                childClass = 'active'
+                                            if (typeof window !== `undefined`) {
+                                                if (window.location.hash === `#${kebabCase(heading.value)}`) {
+                                                    childClass = 'active'
+                                                }
                                             }
                                             return (
                                                 <li>
