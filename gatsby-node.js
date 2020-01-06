@@ -74,4 +74,28 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
         })
     })
+
+    /* Create Strapi Single Post URLs */
+    const strapiBlogPostTemplate = path.resolve('./src/templates/strapi-post.js')
+    const strapiBlogPost = await graphql(`
+        query{
+            allStrapiBlogPosts{
+                edges{
+                    node{
+                        id
+                        Title
+                    }
+                }
+            }
+        }
+    `)
+    strapiBlogPost.data.allStrapiBlogPosts.edges.forEach((edge) => {
+        createPage({
+            component: strapiBlogPostTemplate,
+            path: `/strapi-content/${_.kebabCase(edge.node.Title)}`,
+            context: {
+                id: edge.node.id
+            }
+        })
+    })
 }

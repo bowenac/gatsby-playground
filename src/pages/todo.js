@@ -24,6 +24,7 @@ const ToDoPage = ({ location }) => (
                     </strike></li>
                     <li><strike>Create image component to just call something like Image imgName="gatsby-astronaut.png" and commit it</strike></li>
                     <li><strike>Create a component for a hero</strike></li>
+                    <li>Create a form and contact page, submit to netlify...</li>
                     <li>Create a component for slider using slickslider</li>
                     <li>Create different menu types as components for quick starter menus:
                         <ul>

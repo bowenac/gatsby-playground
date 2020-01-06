@@ -57,6 +57,7 @@ class Header extends React.Component {
                                 <span>Work</span>
                                 <ul className="nav-links">
                                     <li><Link to="/todo/">ToDo's</Link></li>
+                                    <li><Link to="/strapi-content/">Strapi CMS</Link></li>
                                 </ul>
                             </div>
                             <div className="column">

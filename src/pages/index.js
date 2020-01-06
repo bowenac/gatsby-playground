@@ -17,9 +17,9 @@ const IndexPage = ({ location }) => {
 
             <Hero
                 imgName="DSC01284.JPG"
-                heading="This is the hero"
+                heading="Hero Heading"
                 subHeading="This is the sub heading"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempore aperiam quis nulla placeat. Molestias dignissimos amet numquam fuga voluptate consequatur qui excepturi recusandae?"
+                content="Cool sentences could go here."
                 align="center"
                 internalLink="/about"
                 externalLink="https://www.gatsbyjs.org/"
