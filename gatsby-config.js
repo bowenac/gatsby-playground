@@ -74,7 +74,7 @@ module.exports = {
             options: {
                 apiURL: process.env.DEPLOY_URL
                     ? 'https://bowenac-strapi.herokuapp.com'
-                    : `https://bowenac-strapi.herokuapp.com`,// Or local host, but I want dev to use same content from strapi on heroku
+                    : `https://bowenac-strapi.herokuapp.com`,// Or http://localhost:1337, but I want dev to use same content from strapi on heroku
                 queryLimit: 1000, // Default to 100
                 contentTypes: [`blog-posts`, `user`],
                 // Possibility to login with a strapi user, when content types are not publically available (optional).

@@ -48,17 +48,17 @@ const StrapiPage = ({ data, location }) => (
                 <p>Strapi is an Open Source Headless CMS which can be a great way to add content to Gatsby. Depending on a few scenarios below...</p>
                 <p>There are a few things to keep in mind if you plan on using Strapi as a headless CMS though.</p>
 
-                <p>Running Strapi locally will work but will require you to run the gatsby build locally, and push the full contents of public folder from the build to your server.</p>
-                <p>If you're using github and netlify for auto build/deployments
-                    and you have gatsby configured to use Strapi locally, the build will fail in netlify because it can't fetch the strapi content from the apiURL being set to localhost.
-                    For this kind of setup, you would need to host strapi on something like heroku, and then you would need to use something like cloudinary for the images etc,
-                    and then configure gatsby-source-plugin apiURL to use the url from heroku etc.
-                    This is kind of a setback in my opinion as you're now using multiple services.</p>
+                <p>Running Strapi locally will work but will require you to run the gatsby build locally, so it can grab the data from strapi. Then push the full contents of public folder from the build to your server.
+                    This will not work if using something like github/netlify with auto deployments as the build would fail as it will not be able to fetch the content from localhost...</p>
+
+                <p>If you're using github and netlify you would need to host strapi on something like heroku, and then you would need to use something like cloudinary for the images etc,
+                    and then configure gatsby-source-plugin apiURL to use the url from heroku etc. This is pretty straight forward, I documented this as I configured it in this way.
+                    There are plenty of docs on doing this. <Link to="/docs/gatsby/content-from-strapi/#setting-up-heroku-for-strapi">Setting Up Strapi/Heroku/Cloudinary</Link></p>
 
                 <p>Check out <a href="https://strapi.io/" target="_blank" rel="noopener noreferrer">Strapi</a></p>
 
-                <h2>Below is some mockup content from Strapi.</h2>
-                <p>In this scenario I setup Strapi locally, run a build, and push the full contents of public folder to my server.</p>
+                <h2>Below is some mockup content from Strapi hosted on Heroku</h2>
+
                 <articles className="strapi-posts">
                     {/* Strapi Posts Here */}
                     {data.allStrapiBlogPosts.nodes.map(post => {
