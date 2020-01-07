@@ -88,29 +88,31 @@ The part that is commented out allows gatsby to access these content types via t
 
 If you're not sure what the contentType name is, login to strapi, click on Roles & Permissions, under Application Permissions you should see your content types. Click on a toggle for the content type you're adding to gatsby, and to the right it should show you the route e.g. clicking on find checkbox for Blog-Posts would show GET /blog-posts... If you were to open http://localhost:1337/blog-posts without find checkbox checked, you would get a forbidden error. If you check the checkbox find and save... you should then be able to see the data if you went to http://localhost:1337/blog-posts this means that gatsby should now be able to access this data as well.
 
-### GraphiQl ###
+### Graphql ###
 
 Example of a query to get all the Blog Posts we created along with the fields
 
 ```js
 query{
-    allStrapiBlogPosts{
+    allStrapiBlogPosts(sort: {fields: id, order: DESC}) {
         nodes{
             id
             Title
             Content
-            Author{
+            Excerpt
+            author{
                 id
                 username
             }
             Featured{
                 childImageSharp{
-                    fluid{
+                    fluid(maxWidth: 350, maxHeight: 350){
                         ...GatsbyImageSharpFluid_withWebp
                         src
                     }
                 }
             }
+            created_at(formatString: "MMM DD, Y")
         }
     }
 }
@@ -208,7 +210,7 @@ export default StrapiPage
 
 ### Handling Single Posts ###
 
-**We first need to create urls based on all of the posts from graphiql we do this in gatsby-node.js**
+**We first need to create urls based on all of the posts from graphql we do this in gatsby-node.js**
 
 Notice we include **lodash** on line 2 so we can use kebab to create the **pretty url** on line 25 and we're creating the permalinks from /strapi-content/ since that is the main index page for the strapi blog posts. This example is only creating links for strapi posts, but you would do the same thing for other integrations...
 
@@ -345,7 +347,7 @@ export default StrapiBlogPost
 
 **My full gatsby-node.js example**
 
-Here is my full gatsby-node.js file which shows creating page "urls" for the different single docs sections and using onCreateNode to create a slug field if node.internal.type === 'MarkdownRemark' which would be a markdown file .md, which is then able to be used in graphiql to query for unique markdown files based on the slug which is used for the urls for the single docs in the docs sections. Look at "how these docs were created" section for more on that.
+Here is my full gatsby-node.js file which shows creating page "urls" for the different single docs sections and using onCreateNode to create a slug field if node.internal.type === 'MarkdownRemark' which would be a markdown file .md, which is then able to be used in graphql to query for unique markdown files based on the slug which is used for the urls for the single docs in the docs sections. Look at "how these docs were created" section for more on that.
 
 ```js
 /**

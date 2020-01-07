@@ -98,4 +98,51 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
         })
     })
+
+    /* Create WordPress Single Post URLs */
+    const wordpress_single_post_template = path.resolve('./src/templates/wordpress-post.js')
+    const wordpress_blog_post = await graphql(`
+        query{
+            allWordpressPost {
+                edges{
+                    node {
+                        id
+                        slug
+                    }
+                }
+            }
+        }
+    `)
+    wordpress_blog_post.data.allWordpressPost.edges.forEach((edge) => {
+        createPage({
+            component: wordpress_single_post_template,
+            path: `/wordpress-content/${edge.node.slug}`,
+            context: {
+                id: edge.node.id
+            }
+        })
+    })
+    /* Create WordPress Recipe Post URLs */
+    const wordpress_single_recipe_template = path.resolve('./src/templates/wordpress-recipe-post.js')
+    const wordpress_recipe_post = await graphql(`
+        query{
+            allWordpressWpRecipes {
+                edges{
+                    node {
+                        id
+                        slug
+                    }
+                }
+            }
+        }
+    `)
+    wordpress_recipe_post.data.allWordpressWpRecipes.edges.forEach((edge) => {
+        createPage({
+            component: wordpress_single_recipe_template,
+            path: `/wordpress-content/recipe/${edge.node.slug}`,
+            context: {
+                id: edge.node.id
+            }
+        })
+    })
 }

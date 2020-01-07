@@ -58,6 +58,7 @@ class Header extends React.Component {
                                 <ul className="nav-links">
                                     <li><Link to="/todo/">ToDo's</Link></li>
                                     <li><Link to="/strapi-content/">Strapi CMS</Link></li>
+                                    <li><Link to="/wordpress-content/">WordPress CMS</Link></li>
                                 </ul>
                             </div>
                             <div className="column">
