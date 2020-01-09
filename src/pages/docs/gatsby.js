@@ -73,6 +73,17 @@ const GatsbyDocsPage = ({ location }) => {
                                     </code>
                                     <span className="line-numbers-rows"><span></span></span>
                                 </pre>
+
+                                <p>Or if you want to create a new gatsby site from a repo you would use the github url to the gatsby project e.g. https://github.com/bowenac/gatsby-playground</p>
+                                <pre className="language-shell line-numbers">
+                                    <code>
+                                        {`gatsby new project-name https://github.com/bowenac/gatsby-playground`}
+                                    </code>
+                                    <span className="line-numbers-rows"><span></span></span>
+                                </pre>
+                                <br></br>
+                                <br></br>
+
                                 <br></br>
                                 <br></br>
 

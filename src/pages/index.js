@@ -29,7 +29,6 @@ const IndexPage = ({ location }) => {
 
             <section className="">
                 <div className="container">
-
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid omnis voluptatum quibusdam fuga nam adipisci ratione molestiae optio, illo maxime officiis suscipit rem, repellendus explicabo rerum minus quae, exercitationem alias.</p>
 
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae qui totam nisi, fugiat sapiente laboriosam accusamus distinctio, hic obcaecati tempora. Ab harum consequuntur numquam laudantium, aliquid voluptas totam doloremque!Quia provident sequi illum, odio distinctio quae, quam dolores blanditiis unde consequatur eum earum aliquid? Minima possimus magni, esse distinctio vero labore inventore dicta ducimus minus corrupti beatae ipsum hic?</p>

@@ -122,6 +122,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
         })
     })
+
     /* Create WordPress Recipe Post URLs */
     const wordpress_single_recipe_template = path.resolve('./src/templates/wordpress-recipe-post.js')
     const wordpress_recipe_post = await graphql(`
