@@ -87,7 +87,7 @@ const IndexPage = ({ location }) => {
 
             <section className="fluid">
                 <div className="container">
-                    <h2>Fluid Section with Twp Columns</h2>
+                    <h2>Fluid Section with Two Columns</h2>
                     <div className="row">
                         <div className="col-md-6">
                             <Image imgName="DSC00091.JPG" alt="Wood Texture" />
@@ -111,6 +111,9 @@ const IndexPage = ({ location }) => {
                 <div className="container">
                     <h2>Fluid Section with Three Columns</h2>
                     <div className="row">
+                        <div className="col-md-4">
+                            <Image imgName="DSC00091.JPG" alt="Wood Texture" />
+                        </div>
                         <div className="col-md-4">
                             <Image imgName="DSC00091.JPG" alt="Wood Texture" />
                         </div>

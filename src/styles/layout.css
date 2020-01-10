@@ -676,6 +676,14 @@ section.fluid .row .col-md-4,
 section.fluid .row .col-md-6{
     margin-bottom: 1.45rem;
 }
+
+footer {
+    padding: 30px 0px;
+}
+footer .container {
+    text-align: center;
+}
+
 @media screen and (min-width: 768px){
     section.fluid .row {
         margin-left: 0px;
@@ -704,11 +712,27 @@ section.fluid .row .col-md-6{
         padding-left: 30px;
     }
 }
-
-
-footer {
-    padding: 30px 0px;
+@media screen and (max-width: 767px){
+    section.fluid .container .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    section.fluid .row div {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
-footer .container {
-    text-align: center;
+@media screen and (max-width: 600px){
+
+    h1 {
+        font-size: 1.62671rem;
+    }
+    h2 {
+        font-size: 1.32671rem;
+    }
+
+    .btn, button, input[type="button"], input[type="reset"], input[type="submit"] {
+        padding: 5px 12px;
+        font-size: 14px;
+    }
 }

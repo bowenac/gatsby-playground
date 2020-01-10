@@ -2,6 +2,14 @@
 
 Just a personal space for me to learn Gatsby and document my journey starting fresh with the default starter theme.
 
+Hosted on Netlify:
+<br>
+https://agitated-kilby-9b95d9.netlify.com/
+<br>
+Also on a different server where I manually push the builds:
+<br>
+https://gatsby.adamcbowen.com/
+
 ---
 
 ## Created dynamic documentation using markdown files. ##
@@ -33,3 +41,8 @@ uses gatsby-background-image
     textPosition="center"
 />
 ```
+
+## Example content from the following CMSs and or APIs.
+
+- Strapi CMS on Heroku and using Cloudinary for images.
+- WordPress custom post types with advanced custom fields, created a base WordPress starter theme for using it with Gatsby.

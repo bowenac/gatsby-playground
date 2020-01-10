@@ -48,7 +48,7 @@ const ToDoPage = ({ location }) => (
                             <li>Images</li>
                         </ul>
                     </strike></li>
-                    <li>WordPress Integration:
+                    <li><strike>WordPress Integration:
                         <ul>
                             <li>Pages</li>
                             <li>Blog Posts</li>
@@ -56,7 +56,7 @@ const ToDoPage = ({ location }) => (
                             <li>Advanced Custom Fields</li>
                             <li>Images</li>
                         </ul>
-                    </li>
+                    </strike></li>
                     <li>Craft CMS Integration:
                         <ul>
                             <li>Single Entries</li>
