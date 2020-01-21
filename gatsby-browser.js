@@ -14,7 +14,6 @@ exports.onRouteUpdate = () => {
         if ($('.sidebar').length) {
             /* Anchor Scroll */
             $('.sidebar a[href*=\\#]').click(function (e) {
-                e.preventDefault();
                 setActive($(this));
                 var anchor = $(this).attr('href');
                 if ($(anchor).length > 0) {
