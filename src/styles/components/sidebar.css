@@ -151,6 +151,5 @@ section.full .container .docs footer {
 }
 
 .docs h2[id], .docs h3[id], .docs h4[id] {
-    padding-top: 120px;
     display: inline-block;
 }

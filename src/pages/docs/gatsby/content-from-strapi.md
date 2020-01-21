@@ -2,8 +2,6 @@
 title: "Content Using Strapi"
 ---
 
-## Using strapi as a headless cms ##
-
 Open node and cd to where you want it installed, run the following to install strapi
 
 ```shell
@@ -29,7 +27,8 @@ Admin users control content types, fields, users, all admin tasks etc. Admins ca
 
 Setup a new authenticated user... this user is used for creating content. These users would be for example the authors.
 
-### Setting up first Content Type. ###
+**Setting up first Content Type.**
+
 The first thing you will want to do after creating users is to create a content type e.g. Blog Posts.
 
 - Click on Content Type Builder

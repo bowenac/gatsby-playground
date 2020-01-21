@@ -2,8 +2,6 @@
 title: "Content From Wordpress"
 ---
 
-## Barebones theme on my repo ##
-
 I created a barebones theme that will not render anything on the WordPress front end...
 <br>
 https://github.com/bowenac/gatsby-wp-theme

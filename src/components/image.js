@@ -25,8 +25,6 @@ export default ({ imgName, alt }) => {
         return null
     }
 
-    console.log(data)
-
     return (
         <Img fluid={image.node.fluid} alt={alt} />
     )

@@ -66,9 +66,9 @@ const DocsSidebar = ({ location, docs, heading, parentlink }) => (
                                             }
                                             return (
                                                 <li>
-                                                    <Link className={childClass} to={`${parentlink}${edge.node.childMarkdownRemark.fields.slug}/#${kebabCase(heading.value)}`}>
+                                                    <a className={childClass} href={`#${(heading.value).replace(/[,.?]/g, '').replace(/[ ]/g, '-').toLowerCase()}`}>
                                                         {heading.value}
-                                                    </Link>
+                                                    </a>
                                                 </li>
                                             )
 
